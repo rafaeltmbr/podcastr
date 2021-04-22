@@ -83,7 +83,8 @@ export const EmpltySlider = styled.div`
 export const Buttons = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 1.5rem;
   margin-top: 2.5rem;
 `;
 

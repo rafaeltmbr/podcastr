@@ -39,7 +39,6 @@ const Player: React.FC = () => {
         <Button path="/assets/img/shuffle.svg" />
         <Button path="/assets/img/play-previous.svg" />
         <PlayButton path="/assets/img/play.svg" />
-        <Button path="/assets/img/shuffle.svg" />
         <Button path="/assets/img/play-next.svg" />
         <Button path="/assets/img/repeat.svg" />
       </Buttons>
