@@ -11,3 +11,15 @@ export interface IEpisodes {
     duration: number;
   };
 }
+export interface IFormattedEpisodes {
+  id: string;
+  title: string;
+  members: string;
+  publishedAt: string;
+  thumbnail: string;
+  description: string;
+  url: string;
+  duration: number;
+  durationString: string;
+  type: string;
+}
