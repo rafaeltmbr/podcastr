@@ -1,4 +1,4 @@
-export interface IEpisodes {
+export interface IEpisode {
   id: string;
   title: string;
   members: string;
@@ -11,7 +11,7 @@ export interface IEpisodes {
     duration: number;
   };
 }
-export interface IFormattedEpisodes {
+export interface IFormattedEpisode {
   id: string;
   title: string;
   members: string;

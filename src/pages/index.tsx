@@ -5,26 +5,34 @@ import ptBR from "date-fns/locale/pt-BR";
 
 import { api } from "../services/api";
 import { convertDurationToTimeString } from "../utils/convertDurationToTimeString";
-import { IEpisodes, IFormattedEpisodes } from "../interfaces";
+import { IEpisode, IFormattedEpisode } from "../interfaces";
+
+import { LatestEpisodesSection } from "../components/LatestEpisodesSection";
+import { AllEpisodesSection } from "../components/AllEpisodesSection";
 import { Container } from "../../styles/index";
 
 interface Props {
-  data?: IFormattedEpisodes[];
+  allEpisodes?: IFormattedEpisode[];
+  latestEpisodes?: IFormattedEpisode[];
   error?: string;
 }
 
-const Home: React.FC<Props> = ({ data, error }) => {
-  if (data) console.log(data);
+const Home: React.FC<Props> = ({ latestEpisodes, allEpisodes, error }) => {
   if (error) console.warn(error);
 
-  return <Container>{JSON.stringify(data)}</Container>;
+  return (
+    <Container>
+      <LatestEpisodesSection episodes={latestEpisodes?.slice(0, 2)} />
+      <AllEpisodesSection episodes={allEpisodes?.slice(2)} />
+    </Container>
+  );
 };
 
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const { data } = await api.get<IEpisodes[]>("episodes", {
+    const { data } = await api.get<IEpisode[]>("episodes", {
       params: {
         _limit: 12,
         _page: 1,
@@ -33,7 +41,7 @@ export const getStaticProps: GetStaticProps = async () => {
       },
     });
 
-    const formattedData: IFormattedEpisodes[] = data.map((episode) => ({
+    const episodes: IFormattedEpisode[] = data.map((episode) => ({
       id: episode.id,
       title: episode.title,
       members: episode.members,
@@ -46,8 +54,12 @@ export const getStaticProps: GetStaticProps = async () => {
       durationString: convertDurationToTimeString(episode.file.duration),
     }));
 
+    const latestEpisodes = episodes.slice(0, 2);
+
+    const allEpisodes = episodes.slice(2);
+
     return {
-      props: { data: formattedData },
+      props: { latestEpisodes, allEpisodes },
       revalidate: 10,
     };
   } catch (err) {

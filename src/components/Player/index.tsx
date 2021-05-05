@@ -15,7 +15,7 @@ import {
   EmpltySlider,
 } from "./styles";
 
-const Player: React.FC = () => {
+export const Player: React.FC = () => {
   return (
     <Container>
       <Header>
@@ -45,5 +45,3 @@ const Player: React.FC = () => {
     </Container>
   );
 };
-
-export default Player;
