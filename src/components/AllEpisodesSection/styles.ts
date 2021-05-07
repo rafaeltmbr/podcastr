@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 export const Section = styled.section``;
 
-export const Title = styled.h2``;
+export const Title = styled.h2`
+  margin: 3rem 0 1.5rem;
+`;
 
 export const Table = styled.table`
   width: 100%;
@@ -33,14 +35,16 @@ export const TableDataCell = styled.td`
     width: 11ch;
   }
 
-  &.image > * {
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 0.5rem;
+  &.button,
+  &.image {
+    padding: 0.5rem;
+    vertical-align: middle;
   }
 
-  &.middle {
-    vertical-align: middle;
+  &.image * {
+    width: 4rem;
+    height: 4em;
+    border-radius: 0.5rem;
   }
 `;
 

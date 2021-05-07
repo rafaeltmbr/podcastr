@@ -36,7 +36,7 @@ export const AllEpisodesSection: React.FC<IAllEpisodeSection> = ({ episodes, ...
         <TableBody>
           {episodes.map((episode) => (
             <TableRow key={episode.id}>
-              <TableDataCell className="image middle">
+              <TableDataCell className="image">
                 <Image
                   src={episode.thumbnail}
                   alt={episode.title}
@@ -51,7 +51,7 @@ export const AllEpisodesSection: React.FC<IAllEpisodeSection> = ({ episodes, ...
               <TableDataCell>{episode.members}</TableDataCell>
               <TableDataCell className="date">{episode.publishedAt}</TableDataCell>
               <TableDataCell>{episode.durationString}</TableDataCell>
-              <TableDataCell className="middle">
+              <TableDataCell className="button">
                 <PlayButton />
               </TableDataCell>
             </TableRow>
