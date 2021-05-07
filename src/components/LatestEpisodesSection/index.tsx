@@ -1,4 +1,6 @@
 import React from "react";
+import Link from "next/link";
+
 import { ILatestEpisodeSection } from "../../interfaces";
 
 import {
@@ -6,7 +8,7 @@ import {
   SectionTitle,
   List,
   ListItem,
-  EpisodeTitleAnchor,
+  EpisodeTitle,
   Details,
   PublishedAt,
   Duration,
@@ -31,7 +33,9 @@ export const LatestEpisodesSection: React.FC<ILatestEpisodeSection> = ({ episode
               objectFit="cover"
             />
             <Details>
-              <EpisodeTitleAnchor href="">{episode.title}</EpisodeTitleAnchor>
+              <EpisodeTitle>
+                <Link href="">{episode.title}</Link>
+              </EpisodeTitle>
               <Members>{episode.members}</Members>
               <PublishedAt>{episode.publishedAt}</PublishedAt>
               <Duration>{episode.durationString}</Duration>

@@ -36,15 +36,18 @@ export const Details = styled.div`
   margin-left: 1rem;
 `;
 
-export const EpisodeTitleAnchor = styled.a`
-  display: block;
-  color: var(--gray-600);
+export const EpisodeTitle = styled.h3`
   font-family: Lexend, sans-serif;
   font-weight: 600;
-  text-decoration: none;
+  font-size: 1rem;
   line-height: 1.4rem;
 
-  &:hover {
+  * {
+    text-decoration: none;
+    color: var(--gray-600);
+  }
+
+  &:hover * {
     text-decoration: underline;
   }
 `;
