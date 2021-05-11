@@ -3,13 +3,13 @@ import { GetStaticProps } from "next";
 import format from "date-fns/format";
 import ptBR from "date-fns/locale/pt-BR";
 
-import { api } from "../services/api";
 import { convertDurationToTimeString } from "../utils/convertDurationToTimeString";
-import { IEpisode, IFormattedEpisode } from "../interfaces";
 
 import { LatestEpisodesSection } from "../components/LatestEpisodesSection";
 import { AllEpisodesSection } from "../components/AllEpisodesSection";
-import { Container } from "../../styles/index";
+import { Container } from "./styles";
+import { getEpisodes } from "../controllers/episodes/getEpisodes";
+import { IFormattedEpisode } from "../interfaces/episode/IEpisode";
 
 interface Props {
   allEpisodes?: IFormattedEpisode[];
@@ -32,14 +32,7 @@ export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const { data } = await api.get<IEpisode[]>("episodes", {
-      params: {
-        _limit: 12,
-        _page: 1,
-        _sort: "published_at",
-        _order: "desc",
-      },
-    });
+    const data = await getEpisodes();
 
     const episodes: IFormattedEpisode[] = data.map((episode) => ({
       id: episode.id,

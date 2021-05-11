@@ -82,7 +82,7 @@ export const PlayButton = styled.button`
     filter: brightness(0.95);
   }
 
-  background-image: url(./assets/img/play-green.svg);
+  background-image: url(/assets/img/play-green.svg);
   background-size: 60%;
   background-position: center;
   background-repeat: no-repeat;

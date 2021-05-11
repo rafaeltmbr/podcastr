@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import { IAllEpisodeSection, IFormattedEpisode } from "../../interfaces";
+import { IAllEpisodeSection } from "../../interfaces/section/IAllEpisodesSection";
 
 import {
   Section,
@@ -46,7 +46,7 @@ export const AllEpisodesSection: React.FC<IAllEpisodeSection> = ({ episodes, ...
                 />
               </TableDataCell>
               <TableDataTitle>
-                <Link href="">{episode.title}</Link>
+                <Link href={`/episodes/${episode.id}`}>{episode.title}</Link>
               </TableDataTitle>
               <TableDataCell>{episode.members}</TableDataCell>
               <TableDataCell className="date">{episode.publishedAt}</TableDataCell>

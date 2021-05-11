@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import { ILatestEpisodeSection } from "../../interfaces";
+import { ILatestEpisodeSection } from "../../interfaces/section/ILatestEpisodesSection";
 
 import {
   Section,
@@ -34,14 +34,14 @@ export const LatestEpisodesSection: React.FC<ILatestEpisodeSection> = ({ episode
             />
             <Details>
               <EpisodeTitle>
-                <Link href="">{episode.title}</Link>
+                <Link href={`/episodes/${episode.id}`}>{episode.id}</Link>
               </EpisodeTitle>
               <Members>{episode.members}</Members>
               <PublishedAt>{episode.publishedAt}</PublishedAt>
               <Duration>{episode.durationString}</Duration>
             </Details>
             <PlayButton title="Tocar Podcast">
-              <PlayIcon source="./assets/img/play-green.svg" />
+              <PlayIcon source="/assets/img/play-green.svg" />
             </PlayButton>
           </ListItem>
         ))}

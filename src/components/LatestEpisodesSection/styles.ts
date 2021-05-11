@@ -71,6 +71,9 @@ export const Duration = styled.span`
   display: inline-block;
   margin-top: 0.5rem;
   font-size: 0.875rem;
+  position: relative;
+  margin-left: 1rem;
+  padding-left: 1rem;
 
   &::before {
     content: "";
@@ -79,10 +82,11 @@ export const Duration = styled.span`
     width: 1em;
     height: 1em;
     border-radius: 0.5em;
-    margin: 0 0.5rem;
     background: var(--gray-500);
-    vertical-align: middle;
-    transform: translateY(-1px);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-50%, -50%);
   }
 `;
 
